@@ -23,6 +23,8 @@ interface Category {
   sort_order: number
 }
 
+const EMOJI_OPTIONS = ['🙏', '👟', '🎮', '📊', '👤', '🔥', '💰', '🚀', '💡', '⚡', '🎯', '📈', '🛠', '🎨', '📱', '💻', '🌐', '⭐', '💎', '🎪', '🏆', '🎲', '🎭', '🎪']
+
 async function getTasks() {
   const { data } = await supabase.from('tasks').select('*').order('company')
   return (data || []) as Task[]
@@ -169,12 +171,15 @@ export default async function TaskBoard() {
         <form action={addCategory} className="flex flex-wrap gap-3 items-end">
           <div>
             <label className="block text-sm text-gray-400 mb-1">Emoji</label>
-            <input 
+            <select 
               name="emoji" 
-              placeholder="📋" 
               required
-              className="w-20 bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg px-4 py-2 text-white focus:border-[#4A9EFF] focus:outline-none text-center text-xl"
-            />
+              className="bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg px-4 py-2 text-white focus:border-[#4A9EFF] focus:outline-none text-xl"
+            >
+              {EMOJI_OPTIONS.map(emoji => (
+                <option key={emoji} value={emoji}>{emoji}</option>
+              ))}
+            </select>
           </div>
           <div className="flex-1 min-w-[150px]">
             <label className="block text-sm text-gray-400 mb-1">Name</label>
