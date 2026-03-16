@@ -5,7 +5,7 @@ import { Circle, Loader, CheckCircle2, Trash2, GripVertical } from 'lucide-react
 import {
   DndContext,
   DragOverlay,
-  closestCorner,
+  closestCorners,
   PointerSensor,
   useSensor,
   useSensors,
@@ -85,7 +85,7 @@ export default function Board({ initialTasks, categories }: { initialTasks: Task
   }
 
   return (
-    <DndContext sensors={sensors} collisionDetection={closestCorner} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext sensors={sensors} collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="min-h-screen bg-[#0a0a0a] text-white">
         {/* Header */}
         <header className="px-6 py-4 flex items-center justify-between border-b border-white/5">
