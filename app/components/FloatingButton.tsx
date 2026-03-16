@@ -71,6 +71,7 @@ export default function FloatingButton({ categories }: { categories: Category[] 
                     <select name="owner" required className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2.5 text-sm text-white focus:border-white/20 focus:outline-none">
                       <option value="ernesto">Ernesto</option>
                       <option value="mau">Mau</option>
+                      <option value="eddie">🐱 Eddie</option>
                       <option value="both">Both</option>
                     </select>
                   </div>
